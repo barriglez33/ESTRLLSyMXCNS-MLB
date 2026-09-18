@@ -1,0 +1,55 @@
+name: Update Estrellas Resto MLB RSS
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 * * * *"
+
+concurrency:
+  group: estrellas-resto-mlb
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 55
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Verify Python
+        run: |
+          python -m py_compile main.py
+          python -c "import feedparser,requests,trafilatura; from deep_translator import GoogleTranslator; from langdetect import detect; print('Dependencies OK')"
+
+      - name: Update Estrellas Resto MLB
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python -u main.py
+
+      - name: Commit generated RSS and data
+        run: |
+          git config user.name "Estrellas Resto MLB Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data docs
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "Update Estrellas Resto MLB"
+            git push
+          fi
