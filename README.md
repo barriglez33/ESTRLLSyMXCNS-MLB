@@ -1,43 +1,39 @@
-# Estrellas Resto MLB
+# Yankees News
 
-GitHub-online-only RSS monitor for **109 MLB / MiLB players**.
+GitHub-online-only RSS monitor for New York Yankees coverage.
 
-## Rotation
+## Timeout-safe batching
 
-The player list is split into two alternating batches:
+The 45 tracked names are split into two alternating batches:
 
-- **Batch 1:** 55 players
-- **Batch 2:** 54 players
+- **Batch 1:** 23 names
+- **Batch 2:** 22 names
 
-The workflow runs every hour and remembers the next batch in:
+GitHub Actions runs every hour. A successful run switches to the other batch automatically.
+
+The next batch is stored in:
 
 `data/state.json`
 
-Each batch searches a rolling **2-hour publication window**, so each player is checked once every two runs while preserving overlap.
+## Rolling two-hour window
 
-## New player metadata
+Each run only processes news from the previous **2 hours**.
 
-Players may include:
+This allows the batches to alternate without leaving a gap while avoiding expensive processing of older articles.
 
-- `team`
-- `level` (`MLB`, `MiLB`, or `Free Agent`)
-- `batch`
-
-For players with a team listed, the team is also used as optional search context to reduce false positives.
+Google News publication dates are checked **before** URL decoding and article extraction.
 
 ## Features
 
-- multilingual discovery using GDELT + Google News
-- player-name searches with MLB/baseball context
-- team context for the newly added players when available
-- MiLB/prospect context for minor leaguers
+- GDELT + Google News multilingual discovery
+- Yankees / MLB context filtering
 - automatic Spanish translation
-- `[SOURCE]` at the beginning of every RSS title
-- smart duplicate detection across publishers/languages
-- keeps the most complete repeated article
-- alternate repeated sources stored in `alternate_sources`
-- master RSS plus one RSS feed per player
-- GitHub Actions only; no local PC required
+- source included in every RSS title
+- smart duplicate detection
+- keeps the most complete version of repeated coverage
+- master RSS plus individual feeds in `docs/people/`
+- only new articles are translated immediately
+- a maximum of 10 older failed translations are retried per run
 
 ## Workflow
 
@@ -45,32 +41,18 @@ For players with a team listed, the team is also used as optional search context
 
 Action name:
 
-**Update Estrellas Resto MLB RSS**
+**Update Yankees News RSS**
 
-Runs every hour at minute `:41`.
+Schedule:
 
-## Output
+Every hour at minute `:31`.
+
+## Generated files
 
 - `docs/feed.xml`
-- `docs/players/*.xml`
+- `docs/people/*.xml`
 - `docs/index.html`
 - `data/articles.json`
 - `data/state.json`
 
-## Current batch totals
-
-Batch 1: **55**
-
-Batch 2: **54**
-
-Total: **109**
-
-## GitHub Pages
-
-For a public repository:
-
-**Settings → Pages → Deploy from a branch → main → /docs**
-
-The general feed will normally be:
-
-`https://YOUR-USERNAME.github.io/estrellas-resto-mlb/feed.xml`
+Do not delete `data/state.json` unless you intentionally want to reset the batch rotation.
