@@ -1,12 +1,12 @@
-name: Update Yankees News RSS
+name: Update Estrellas Resto MLB RSS
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "31 * * * *"
+    - cron: "41 * * * *"
 
 concurrency:
-  group: yankees-news-rss
+  group: estrellas-resto-mlb
   cancel-in-progress: false
 
 permissions:
@@ -35,23 +35,21 @@ jobs:
       - name: Verify Python
         run: |
           python -m py_compile main.py
-          python -c "import json; c=json.load(open('config.json',encoding='utf-8')); print('Tracked names:',len(c['people'])); print('Rolling window:',c['settings']['max_age_hours'],'hours')"
+          python -c "import feedparser,requests,trafilatura; from deep_translator import GoogleTranslator; from langdetect import detect; print('Dependencies OK')"
 
-      - name: Update Yankees news — rolling 2h batch
+      - name: Update Estrellas Resto MLB
         env:
           PYTHONUNBUFFERED: "1"
         run: python -u main.py
 
       - name: Commit generated RSS and data
         run: |
-          git config user.name "Yankees News Bot"
+          git config user.name "Estrellas Resto MLB Bot"
           git config user.email "actions@users.noreply.github.com"
-
           git add data docs
-
           if git diff --cached --quiet; then
             echo "No changes."
           else
-            git commit -m "Update Yankees News"
+            git commit -m "Update Estrellas Resto MLB"
             git push
           fi
