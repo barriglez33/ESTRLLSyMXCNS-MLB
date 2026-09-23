@@ -292,13 +292,18 @@ def rss(arr,title,desc):
       <content:encoded>{cdata(body_html)}</content:encoded>
 {cats}
     </item>""")
+    sorted_items=sorted(arr,key=lambda x:x.get("published_iso",""),reverse=True)[:CFG["settings"]["max_feed_items"]]
+    if sorted_items:
+        build_date=sorted_items[0].get("published_rfc2822") or format_datetime(art_dt(sorted_items[0]))
+    else:
+        build_date="Thu, 01 Jan 1970 00:00:00 +0000"
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
 <title>{cdata(title)}</title>
 <link>{CFG["feed"]["site_url"]}</link>
 <description>{cdata(desc)}</description>
-<lastBuildDate>{format_datetime(datetime.now(timezone.utc))}</lastBuildDate>
+<lastBuildDate>{build_date}</lastBuildDate>
 {''.join(items)}
 </channel></rss>"""
 
