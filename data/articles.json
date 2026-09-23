@@ -39,57 +39,6 @@
     "duplicate_versions_removed": 1
   },
   {
-    "id": "4c5a594056760d327414",
-    "title": "【MLB】カブス・今永昇太は勝敗付かず 5回4安打1失点 鈴木誠也は6打数2安打1得点",
-    "source": "サンスポ",
-    "author": "SANKEI DIGITAL INC",
-    "url": "https://www.sanspo.com/article/20260923-AFE45R5S7BJOHGUACOCWXOS3WY/?outputType=theme_mlb",
-    "published_iso": "2026-09-23T04:38:47+00:00",
-    "published_rfc2822": "Wed, 23 Sep 2026 04:38:47 +0000",
-    "body": "カブス―マーリンズ（22日、シカゴ）カブスの今永が先発し、5回4安打1失点、7三振1死球で勝敗は付かなかった。11勝10敗のままで防御率3.74。\n鈴木は「2番・右翼」で出場し、6打数2安打、1得点だった。内容は一邪飛、見逃し三振、右前打、右中間二塁打、二飛、二ゴロで打率は2割6分7厘。チームは延長十二回、2―8で敗れた。（共同）\n◆今永の話「（四回の失点を）引きずらず、テンポ良く五回を抑えられたのは次につながる。メジャーリーガーの本気はまだこの先（のポストシーズン）にある。それを想定した9月になっている」",
-    "tracked_players": [
-      "Seiya Suzuki",
-      "Shota Imanaga"
-    ],
-    "primary_search_player": "Shota Imanaga",
-    "primary_search_team": "",
-    "primary_search_level": "MLB",
-    "source_languages": [],
-    "source_countries": [
-      "Japan Japanese"
-    ],
-    "discovery_sources": [
-      "Google News"
-    ],
-    "original_title": "【MLB】カブス・今永昇太は勝敗付かず 5回4安打1失点 鈴木誠也は6打数2安打1得点",
-    "original_body": "カブス―マーリンズ（22日、シカゴ）カブスの今永が先発し、5回4安打1失点、7三振1死球で勝敗は付かなかった。11勝10敗のままで防御率3.74。\n鈴木は「2番・右翼」で出場し、6打数2安打、1得点だった。内容は一邪飛、見逃し三振、右前打、右中間二塁打、二飛、二ゴロで打率は2割6分7厘。チームは延長十二回、2―8で敗れた。（共同）\n◆今永の話「（四回の失点を）引きずらず、テンポ良く五回を抑えられたのは次につながる。メジャーリーガーの本気はまだこの先（のポストシーズン）にある。それを想定した9月になっている」",
-    "rss_title": "【MLB】カブス・今永昇太は勝敗付かず 5回4安打1失点 鈴木誠也は6打数2安打1得点",
-    "rss_body": "カブス―マーリンズ（22日、シカゴ）カブスの今永が先発し、5回4安打1失点、7三振1死球で勝敗は付かなかった。11勝10敗のままで防御率3.74。\n鈴木は「2番・右翼」で出場し、6打数2安打、1得点だった。内容は一邪飛、見逃し三振、右前打、右中間二塁打、二飛、二ゴロで打率は2割6分7厘。チームは延長十二回、2―8で敗れた。（共同）\n◆今永の話「（四回の失点を）引きずらず、テンポ良く五回を抑えられたのは次につながる。メジャーリーガーの本気はまだこの先（のポストシーズン）にある。それを想定した9月になっている」",
-    "translation_status": "partial_or_fallback",
-    "translated_to": "es",
-    "alternate_sources": [
-      {
-        "source": "日刊スポーツ",
-        "url": "https://www.nikkansports.com/baseball/mlb/news/202609230000472.html",
-        "title": "鈴木誠也、２安打も２度のサヨナラ機で凡退 延長12回で敗れたカブスのPS進出決定はお預け - ＭＬＢ : 日刊スポーツ",
-        "body_characters": 269
-      },
-      {
-        "source": "日刊スポーツ",
-        "url": "https://www.nikkansports.com/baseball/mlb/news/202609230000201.html",
-        "title": "カブス今永昇太、５回４安打１失点無四球７Kの奮投も勝敗つかず - ＭＬＢ : 日刊スポーツ",
-        "body_characters": 252
-      },
-      {
-        "source": "日刊スポーツ",
-        "url": "https://www.nikkansports.com/baseball/mlb/news/202609230000644.html",
-        "title": "【動画】鈴木誠也の耳に何が？…シカゴの街で早くも防寒対策 - ＭＬＢ : 日刊スポーツ",
-        "body_characters": 388
-      }
-    ],
-    "duplicate_versions_removed": 3
-  },
-  {
     "id": "92ebbc640ddd7d90b518",
     "title": "Astros' Isaac Paredes: Lifts homer in win",
     "source": "CBS Sports",
@@ -303,6 +252,57 @@
     "rss_body": "Vinnie Pasquantino went 3-for-5 with three runs scored, a double, a grand slam and five RBI against the White Sox on Tuesday.\n            \n                Pasquantino’s home run was his 15th of the season. He hit a grand slam off Luis Castillo in the ninth inning. Pasquantino has had a down season, but suddenly has six home runs and 18 RBI in 18 games in September. He’s hitting .259 with a .751 OPS and 59 RBI with five games left in the regular season.",
     "translation_status": "partial_or_fallback",
     "translated_to": "es"
+  },
+  {
+    "id": "4c5a594056760d327414",
+    "title": "【MLB】カブス・今永昇太は勝敗付かず 5回4安打1失点 鈴木誠也は6打数2安打1得点",
+    "source": "サンスポ",
+    "author": "SANKEI DIGITAL INC",
+    "url": "https://www.sanspo.com/article/20260923-AFE45R5S7BJOHGUACOCWXOS3WY/?outputType=theme_mlb",
+    "published_iso": "2026-09-23T04:38:47+00:00",
+    "published_rfc2822": "Wed, 23 Sep 2026 04:38:47 +0000",
+    "body": "カブス―マーリンズ（22日、シカゴ）カブスの今永が先発し、5回4安打1失点、7三振1死球で勝敗は付かなかった。11勝10敗のままで防御率3.74。\n鈴木は「2番・右翼」で出場し、6打数2安打、1得点だった。内容は一邪飛、見逃し三振、右前打、右中間二塁打、二飛、二ゴロで打率は2割6分7厘。チームは延長十二回、2―8で敗れた。（共同）\n◆今永の話「（四回の失点を）引きずらず、テンポ良く五回を抑えられたのは次につながる。メジャーリーガーの本気はまだこの先（のポストシーズン）にある。それを想定した9月になっている」",
+    "tracked_players": [
+      "Seiya Suzuki",
+      "Shota Imanaga"
+    ],
+    "primary_search_player": "Shota Imanaga",
+    "primary_search_team": "",
+    "primary_search_level": "MLB",
+    "source_languages": [],
+    "source_countries": [
+      "Japan Japanese"
+    ],
+    "discovery_sources": [
+      "Google News"
+    ],
+    "original_title": "【MLB】カブス・今永昇太は勝敗付かず 5回4安打1失点 鈴木誠也は6打数2安打1得点",
+    "original_body": "カブス―マーリンズ（22日、シカゴ）カブスの今永が先発し、5回4安打1失点、7三振1死球で勝敗は付かなかった。11勝10敗のままで防御率3.74。\n鈴木は「2番・右翼」で出場し、6打数2安打、1得点だった。内容は一邪飛、見逃し三振、右前打、右中間二塁打、二飛、二ゴロで打率は2割6分7厘。チームは延長十二回、2―8で敗れた。（共同）\n◆今永の話「（四回の失点を）引きずらず、テンポ良く五回を抑えられたのは次につながる。メジャーリーガーの本気はまだこの先（のポストシーズン）にある。それを想定した9月になっている」",
+    "rss_title": "【MLB】カブス・今永昇太は勝敗付かず 5回4安打1失点 鈴木誠也は6打数2安打1得点",
+    "rss_body": "カブス―マーリンズ（22日、シカゴ）カブスの今永が先発し、5回4安打1失点、7三振1死球で勝敗は付かなかった。11勝10敗のままで防御率3.74。\n鈴木は「2番・右翼」で出場し、6打数2安打、1得点だった。内容は一邪飛、見逃し三振、右前打、右中間二塁打、二飛、二ゴロで打率は2割6分7厘。チームは延長十二回、2―8で敗れた。（共同）\n◆今永の話「（四回の失点を）引きずらず、テンポ良く五回を抑えられたのは次につながる。メジャーリーガーの本気はまだこの先（のポストシーズン）にある。それを想定した9月になっている」",
+    "translation_status": "partial_or_fallback",
+    "translated_to": "es",
+    "alternate_sources": [
+      {
+        "source": "日刊スポーツ",
+        "url": "https://www.nikkansports.com/baseball/mlb/news/202609230000472.html",
+        "title": "鈴木誠也、２安打も２度のサヨナラ機で凡退 延長12回で敗れたカブスのPS進出決定はお預け - ＭＬＢ : 日刊スポーツ",
+        "body_characters": 269
+      },
+      {
+        "source": "日刊スポーツ",
+        "url": "https://www.nikkansports.com/baseball/mlb/news/202609230000201.html",
+        "title": "カブス今永昇太、５回４安打１失点無四球７Kの奮投も勝敗つかず - ＭＬＢ : 日刊スポーツ",
+        "body_characters": 252
+      },
+      {
+        "source": "日刊スポーツ",
+        "url": "https://www.nikkansports.com/baseball/mlb/news/202609230000644.html",
+        "title": "【動画】鈴木誠也の耳に何が？…シカゴの街で早くも防寒対策 - ＭＬＢ : 日刊スポーツ",
+        "body_characters": 388
+      }
+    ],
+    "duplicate_versions_removed": 3
   },
   {
     "id": "487192e8a593749bf797",
