@@ -1,4 +1,4 @@
-name: Update Estrellas Resto MLB RSS
+name: Update Estrellas MLB RSS
 
 on:
   workflow_dispatch:
@@ -32,12 +32,22 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
-      - name: Verify Python
+      - name: Verify repository
         run: |
           python -m py_compile main.py
-          python -c "import feedparser,requests,trafilatura; from deep_translator import GoogleTranslator; from langdetect import detect; print('Dependencies OK')"
+          python - <<'PY'
+          import json
+          c=json.load(open("config.json",encoding="utf-8"))
+          targets=c["players"]+c.get("topics",[])
+          print("Players:",len(c["players"]))
+          print("Postseason topics:",len(c.get("topics",[])))
+          print("Total searches:",len(targets))
+          for b in (1,2,3):
+              print(f"Batch {b}:",sum(1 for x in targets if x.get("batch")==b))
+          print("Rolling window:",c["settings"]["max_age_hours"],"hours")
+          PY
 
-      - name: Update Estrellas Resto MLB
+      - name: Update Estrellas MLB
         env:
           PYTHONUNBUFFERED: "1"
         run: python -u main.py
@@ -56,13 +66,10 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update Estrellas Resto MLB"
-
-          echo "Commit created. Attempting push with automatic retries..."
+          git commit -m "Update Estrellas MLB"
 
           for attempt in 1 2 3 4 5; do
             echo "Push attempt $attempt of 5"
-
             if git push origin HEAD:main; then
               echo "Push successful."
               exit 0
