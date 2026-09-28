@@ -1,76 +1,102 @@
-# Estrellas Resto MLB
+# Estrellas MLB y Mexicanos
 
-GitHub-online-only RSS monitor for **109 MLB / MiLB players**.
+GitHub-online RSS monitor for MLB stars, Mexican MLB/MiLB players, and postseason topics.
 
-## Rotation
+## Search coverage
 
-The player list is split into two alternating batches:
+The project now tracks:
 
-- **Batch 1:** 55 players
-- **Batch 2:** 54 players
+- **109 players**
+- **28 postseason keywords**
+- **137 total searches**
 
-The workflow runs every hour and remembers the next batch in:
+### Postseason categories
 
-`data/state.json`
+- Core Postseason
+- Round Formats
+- Team & Series Battles
+- Strategy & Analytics
+- Awards & Media
 
-Each batch searches a rolling **2-hour publication window**, so each player is checked once every two runs while preserving overlap.
+## Three-batch rotation
 
-## New player metadata
+The searches are split into:
 
-Players may include:
+- **Batch 1:** 46 searches
+- **Batch 2:** 46 searches
+- **Batch 3:** 45 searches
 
-- `team`
-- `level` (`MLB`, `MiLB`, or `Free Agent`)
-- `batch`
+The workflow runs once per hour:
 
-For players with a team listed, the team is also used as optional search context to reduce false positives.
+```text
+Hour 1 → Batch 1
+Hour 2 → Batch 2
+Hour 3 → Batch 3
+Hour 4 → Batch 1
+```
 
-## Features
+Because each search runs once every three hours, the scanner uses a rolling **3-hour news window**.
 
-- multilingual discovery using GDELT + Google News
-- player-name searches with MLB/baseball context
-- team context for the newly added players when available
-- MiLB/prospect context for minor leaguers
-- automatic Spanish translation
-- `[SOURCE]` at the beginning of every RSS title
-- smart duplicate detection across publishers/languages
-- keeps the most complete repeated article
-- alternate repeated sources stored in `alternate_sources`
-- master RSS plus one RSS feed per player
-- GitHub Actions only; no local PC required
+## Last 5 runs dashboard
 
-## Workflow
+Open:
+
+`docs/run-stats.html`
+
+This page shows the latest five completed runs, including:
+
+- batch number
+- searches executed
+- articles added after deduplication
+- articles accepted before deduplication
+- total stored articles
+
+The dashboard is regenerated automatically after every successful scanner run.
+
+Its history is stored in:
+
+`data/run_history.json`
+
+Only the latest **5 runs** are kept.
+
+## Feeds
+
+Master:
+
+`docs/feed.xml`
+
+Per player:
+
+`docs/players/*.xml`
+
+Per postseason keyword:
+
+`docs/topics/*.xml`
+
+Dashboard:
+
+`docs/index.html`
+
+Run statistics:
+
+`docs/run-stats.html`
+
+## Performance features
+
+- 3 rotating batches
+- rolling 3-hour window
+- old Google News items discarded before URL decoding
+- only fresh unseen URLs are extracted
+- new stories translated first
+- limited older translation repairs
+- smart duplicate detection
+- stable RSS build dates
+- automatic Git push retries
+
+## GitHub Actions
+
+Workflow:
 
 `.github/workflows/update.yml`
 
-Action name:
-
-**Update Estrellas Resto MLB RSS**
-
 Runs every hour at minute `:41`.
-
-## Output
-
-- `docs/feed.xml`
-- `docs/players/*.xml`
-- `docs/index.html`
-- `data/articles.json`
-- `data/state.json`
-
-## Current batch totals
-
-Batch 1: **55**
-
-Batch 2: **54**
-
-Total: **109**
-
-## GitHub Pages
-
-For a public repository:
-
-**Settings → Pages → Deploy from a branch → main → /docs**
-
-The general feed will normally be:
-
-`https://YOUR-USERNAME.github.io/estrellas-resto-mlb/feed.xml`

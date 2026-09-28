@@ -6,776 +6,885 @@
       "name": "Juan Soto",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 2,
       "name": "Paul Skenes",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 3,
       "name": "Bryce Harper",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 4,
       "name": "Bobby Witt Jr.",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 5,
       "name": "Gunnar Henderson",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 6,
       "name": "Fernando Tatís Jr.",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 7,
       "name": "Ronald Acuña Jr.",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 8,
       "name": "Francisco Lindor",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 9,
       "name": "Vladimir Guerrero Jr.",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 10,
       "name": "Julio Rodríguez",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 11,
       "name": "Yordan Alvarez",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 12,
       "name": "Adley Rutschman",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 13,
       "name": "Corbin Carroll",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 14,
       "name": "Pete Crow-Armstrong",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 15,
       "name": "José Altuve",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 16,
       "name": "Mike Trout",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 17,
       "name": "Manny Machado",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 18,
       "name": "Trea Turner",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 19,
       "name": "Pete Alonso",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 20,
       "name": "Seiya Suzuki",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 21,
       "name": "Alex Bregman",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 22,
       "name": "Bo Bichette",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 23,
       "name": "Kyle Schwarber",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 24,
       "name": "Chris Sale",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 25,
       "name": "Spencer Strider",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 26,
       "name": "Matt Olson",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 27,
       "name": "Austin Riley",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 28,
       "name": "Luis Arraez",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 29,
       "name": "Dylan Cease",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 30,
       "name": "Jackson Holliday",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 31,
       "name": "Corbin Burnes",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 32,
       "name": "Kyle Tucker",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 33,
       "name": "José Ramírez",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 34,
       "name": "Emmanuel Clase",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 35,
       "name": "Josh Naylor",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 36,
       "name": "Cal Raleigh",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 37,
       "name": "Jacob Misiorowski",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 38,
       "name": "Christian Yelich",
-      "batch": 1,
+      "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 39,
       "name": "William Contreras",
-      "batch": 1,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 40,
       "name": "Rafael Devers",
       "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 41,
       "name": "Jung Hoo Lee",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 42,
       "name": "Junior Caminero",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 43,
       "name": "Riley Greene",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 44,
       "name": "Tarik Skubal",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 45,
       "name": "Oneil Cruz",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 46,
       "name": "Ke'Bryan Hayes",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 47,
       "name": "Nolan Arenado",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 48,
       "name": "Paul Goldschmidt",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 49,
       "name": "Sonny Gray",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 50,
       "name": "Masataka Yoshida",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 51,
       "name": "Cody Bellinger",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 52,
       "name": "Dansby Swanson",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 53,
       "name": "Shota Imanaga",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 54,
       "name": "Zack Wheeler",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 55,
       "name": "Cristopher Sánchez",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 56,
       "name": "Framber Valdez",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 57,
       "name": "Hunter Brown",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 58,
       "name": "Vinnie Pasquantino",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 59,
       "name": "Salvador Perez",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 60,
       "name": "Cole Ragans",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 61,
       "name": "Steven Kwan",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 62,
       "name": "Andrés Giménez",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 63,
       "name": "George Springer",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 64,
       "name": "Kevin Gausman",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 65,
       "name": "Wyatt Langford",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 66,
       "name": "Marcus Semien",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 67,
       "name": "Corey Seager",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 68,
       "name": "Logan Gilbert",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 69,
       "name": "George Kirby",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 70,
       "name": "Zac Gallen",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 71,
       "name": "Ketel Marte",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 72,
       "name": "Ha-Seong Kim",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 73,
       "name": "Luis Robert Jr.",
-      "batch": 2,
+      "batch": 1,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 74,
       "name": "Geraldo Perdomo",
       "batch": 2,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 75,
       "name": "Brent Rooker",
-      "batch": 2,
+      "batch": 3,
       "team": "",
-      "level": "MLB"
+      "level": "MLB",
+      "type": "player"
     },
     {
       "id": 76,
       "name": "Alejandro Kirk",
       "team": "Toronto Blue Jays",
       "level": "MLB",
-      "batch": 1
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 77,
       "name": "Isaac Paredes",
       "team": "Houston Astros",
       "level": "MLB",
-      "batch": 1
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 78,
       "name": "Andrés Muñoz",
       "team": "Seattle Mariners",
       "level": "MLB",
-      "batch": 1
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 79,
       "name": "Javier Assad",
       "team": "Chicago Cubs",
       "level": "MLB",
-      "batch": 1
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 80,
       "name": "Jonathan Aranda",
       "team": "Tampa Bay Rays",
       "level": "MLB",
-      "batch": 1
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 81,
       "name": "Jarren Duran",
       "team": "Boston Red Sox",
       "level": "MLB",
-      "batch": 1
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 82,
       "name": "Randy Arozarena",
       "team": "Seattle Mariners",
       "level": "MLB",
-      "batch": 1
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 83,
       "name": "Alek Thomas",
       "team": "Arizona Diamondbacks",
       "level": "MLB",
-      "batch": 1
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 84,
       "name": "Joey Ortiz",
       "team": "Milwaukee Brewers",
       "level": "MLB",
-      "batch": 1
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 85,
       "name": "Ramón Urías",
       "team": "St. Louis Cardinals",
       "level": "MLB",
-      "batch": 1
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 86,
       "name": "Luis Urías",
       "team": "Oakland Athletics",
       "level": "MLB",
-      "batch": 1
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 87,
       "name": "Nick Gonzales",
       "team": "Pittsburgh Pirates",
       "level": "MLB",
-      "batch": 1
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 88,
       "name": "Taijuan Walker",
       "team": "Philadelphia Phillies",
       "level": "MLB",
-      "batch": 1
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 89,
       "name": "Victor Vodnik",
       "team": "Colorado Rockies",
       "level": "MLB",
-      "batch": 1
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 90,
       "name": "José Treviño",
       "team": "New York Yankees",
       "level": "MLB",
-      "batch": 1
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 91,
       "name": "Valente Bellozo",
       "team": "Miami Marlins",
       "level": "MLB",
-      "batch": 2
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 92,
       "name": "César Salazar",
       "team": "Houston Astros",
       "level": "MLB",
-      "batch": 2
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 93,
       "name": "Brandon Valenzuela",
       "team": "Toronto Blue Jays",
       "level": "MLB",
-      "batch": 2
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 94,
       "name": "Marcelo Mayer",
       "team": "Boston Red Sox",
       "level": "MiLB",
-      "batch": 2
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 95,
       "name": "Seth Hernandez",
       "team": "Pittsburgh Pirates",
       "level": "MiLB",
-      "batch": 2
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 96,
       "name": "Jared Serna",
       "team": "Miami Marlins",
       "level": "MiLB",
-      "batch": 2
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 97,
       "name": "Carlos Gutierrez",
       "team": "Boston Red Sox",
       "level": "MiLB",
-      "batch": 2
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 98,
       "name": "Marco Vargas",
       "team": "New York Mets",
       "level": "MiLB",
-      "batch": 2
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 99,
       "name": "Jeter Martinez",
       "team": "Pittsburgh Pirates",
       "level": "MiLB",
-      "batch": 2
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 100,
       "name": "Omar Cruz",
       "team": "San Diego Padres",
       "level": "MiLB",
-      "batch": 2
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 101,
       "name": "Tirso Ornelas",
       "team": "San Diego Padres",
       "level": "MiLB",
-      "batch": 2
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 102,
       "name": "Luis Gastélum",
       "team": "Tampa Bay Rays",
       "level": "MiLB",
-      "batch": 2
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 103,
       "name": "Samy Natera Jr.",
       "team": "Los Angeles Angels",
       "level": "MiLB",
-      "batch": 2
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 104,
       "name": "Alex Carrillo",
       "team": "Texas Rangers",
       "level": "MiLB",
-      "batch": 2
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 105,
       "name": "Anhuar Garcia",
       "team": "Chicago Cubs",
       "level": "MiLB",
-      "batch": 2
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 106,
       "name": "Jesus Broca",
       "team": "Milwaukee Brewers",
       "level": "MiLB",
-      "batch": 2
+      "batch": 1,
+      "type": "player"
     },
     {
       "id": 107,
       "name": "Alberto Barriga",
       "team": "Arizona Diamondbacks",
       "level": "MiLB",
-      "batch": 2
+      "batch": 2,
+      "type": "player"
     },
     {
       "id": 108,
       "name": "Jose Verdugo",
       "team": "San Diego Padres",
       "level": "MiLB",
-      "batch": 2
+      "batch": 3,
+      "type": "player"
     },
     {
       "id": 109,
       "name": "Julio Urías",
       "team": "Free Agent",
       "level": "Free Agent",
-      "batch": 2
+      "batch": 1,
+      "type": "player"
     }
   ],
   "settings": {
-    "max_age_hours": 2,
+    "max_age_hours": 3,
     "gdelt_results_per_player": 12,
     "google_results_per_edition": 4,
     "max_stored_articles": 4000,
     "max_feed_items": 350,
     "minimum_body_characters": 250,
     "google_decode_interval_seconds": 0.05,
-    "old_translation_repairs_per_run": 15,
-    "batch_1_size": 55,
-    "batch_2_size": 54
+    "old_translation_repairs_per_run": 10,
+    "gdelt_results_per_target": 10,
+    "run_history_length": 5
   },
   "google_news_editions": [
     {
@@ -833,11 +942,223 @@
     "infielder",
     "world series",
     "postseason",
-    "spring training"
+    "spring training",
+    "playoffs",
+    "playoff",
+    "wild card",
+    "wild-card",
+    "alds",
+    "nlds",
+    "alcs",
+    "nlcs",
+    "fall classic",
+    "clincher",
+    "tiebreaker",
+    "cy young",
+    "mvp",
+    "power rankings"
   ],
   "feed": {
-    "title": "Estrellas Resto MLB — Noticias",
-    "description": "Noticias multilingües sobre 75 estrellas de MLB fuera de los feeds dedicados de Dodgers, Yankees y Red Sox.",
+    "title": "Estrellas MLB y Mexicanos — Noticias",
+    "description": "Noticias multilingües sobre estrellas de MLB, peloteros mexicanos y temas clave del postseason 2026, con traducción al español y deduplicación inteligente.",
     "site_url": "http://localhost:8000/"
-  }
+  },
+  "topics": [
+    {
+      "id": 1,
+      "keyword": "MLB playoffs 2026",
+      "category": "Core Postseason",
+      "type": "topic",
+      "batch": 2
+    },
+    {
+      "id": 2,
+      "keyword": "Postseason bracket challenge",
+      "category": "Core Postseason",
+      "type": "topic",
+      "batch": 3
+    },
+    {
+      "id": 3,
+      "keyword": "World Series roster limits",
+      "category": "Core Postseason",
+      "type": "topic",
+      "batch": 1
+    },
+    {
+      "id": 4,
+      "keyword": "October baseball columns",
+      "category": "Core Postseason",
+      "type": "topic",
+      "batch": 2
+    },
+    {
+      "id": 5,
+      "keyword": "Playoff clincher celebration",
+      "category": "Core Postseason",
+      "type": "topic",
+      "batch": 3
+    },
+    {
+      "id": 6,
+      "keyword": "Fall Classic schedule",
+      "category": "Core Postseason",
+      "type": "topic",
+      "batch": 1
+    },
+    {
+      "id": 7,
+      "keyword": "Wild Card Series schedule",
+      "category": "Round Formats",
+      "type": "topic",
+      "batch": 2
+    },
+    {
+      "id": 8,
+      "keyword": "ALDS pitching matchups",
+      "category": "Round Formats",
+      "type": "topic",
+      "batch": 3
+    },
+    {
+      "id": 9,
+      "keyword": "NLDS home field advantage",
+      "category": "Round Formats",
+      "type": "topic",
+      "batch": 1
+    },
+    {
+      "id": 10,
+      "keyword": "ALCS clinching game",
+      "category": "Round Formats",
+      "type": "topic",
+      "batch": 2
+    },
+    {
+      "id": 11,
+      "keyword": "NLCS championship series",
+      "category": "Round Formats",
+      "type": "topic",
+      "batch": 3
+    },
+    {
+      "id": 12,
+      "keyword": "Yankees vs Red Sox Wild Card",
+      "category": "Team & Series Battles",
+      "type": "topic",
+      "batch": 1
+    },
+    {
+      "id": 13,
+      "keyword": "Dodgers postseason rotation",
+      "category": "Team & Series Battles",
+      "type": "topic",
+      "batch": 2
+    },
+    {
+      "id": 14,
+      "keyword": "White Sox playoff roster",
+      "category": "Team & Series Battles",
+      "type": "topic",
+      "batch": 3
+    },
+    {
+      "id": 15,
+      "keyword": "Cubs October bullpen",
+      "category": "Team & Series Battles",
+      "type": "topic",
+      "batch": 1
+    },
+    {
+      "id": 16,
+      "keyword": "Phillies wild card seeding",
+      "category": "Team & Series Battles",
+      "type": "topic",
+      "batch": 2
+    },
+    {
+      "id": 17,
+      "keyword": "Astros postseason depth",
+      "category": "Team & Series Battles",
+      "type": "topic",
+      "batch": 3
+    },
+    {
+      "id": 18,
+      "keyword": "Postseason starting rotation",
+      "category": "Strategy & Analytics",
+      "type": "topic",
+      "batch": 1
+    },
+    {
+      "id": 19,
+      "keyword": "Playoff bullpen availability",
+      "category": "Strategy & Analytics",
+      "type": "topic",
+      "batch": 2
+    },
+    {
+      "id": 20,
+      "keyword": "High-leverage relief options",
+      "category": "Strategy & Analytics",
+      "type": "topic",
+      "batch": 3
+    },
+    {
+      "id": 21,
+      "keyword": "October home run leaderboard",
+      "category": "Strategy & Analytics",
+      "type": "topic",
+      "batch": 1
+    },
+    {
+      "id": 22,
+      "keyword": "Base stealing metrics playoffs",
+      "category": "Strategy & Analytics",
+      "type": "topic",
+      "batch": 2
+    },
+    {
+      "id": 23,
+      "keyword": "Tiebreaker scenario outcome",
+      "category": "Strategy & Analytics",
+      "type": "topic",
+      "batch": 3
+    },
+    {
+      "id": 24,
+      "keyword": "MLB playoff power rankings",
+      "category": "Awards & Media",
+      "type": "topic",
+      "batch": 1
+    },
+    {
+      "id": 25,
+      "keyword": "Postseason game predictions",
+      "category": "Awards & Media",
+      "type": "topic",
+      "batch": 2
+    },
+    {
+      "id": 26,
+      "keyword": "World Series MVP favorites",
+      "category": "Awards & Media",
+      "type": "topic",
+      "batch": 3
+    },
+    {
+      "id": 27,
+      "keyword": "AL Cy Young voting consensus",
+      "category": "Awards & Media",
+      "type": "topic",
+      "batch": 1
+    },
+    {
+      "id": 28,
+      "keyword": "NL MVP frontrunner stats",
+      "category": "Awards & Media",
+      "type": "topic",
+      "batch": 2
+    }
+  ]
 }
