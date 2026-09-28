@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
-<title><![CDATA[Joey Ortiz — Estrellas Resto MLB]]></title>
+<title><![CDATA[Joey Ortiz — Estrellas MLB]]></title>
 <link>http://localhost:8000/</link>
 <description><![CDATA[Noticias sobre Joey Ortiz.]]></description>
 <lastBuildDate>Sat, 26 Sep 2026 02:06:35 +0000</lastBuildDate>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
-<title><![CDATA[José Treviño — Estrellas Resto MLB]]></title>
+<title><![CDATA[José Treviño — Estrellas MLB]]></title>
 <link>http://localhost:8000/</link>
 <description><![CDATA[Noticias sobre José Treviño.]]></description>
 <lastBuildDate>Sat, 19 Sep 2026 11:40:09 +0000</lastBuildDate>

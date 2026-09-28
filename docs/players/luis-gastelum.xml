@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
-<title><![CDATA[Luis Gastélum — Estrellas Resto MLB]]></title>
+<title><![CDATA[Luis Gastélum — Estrellas MLB]]></title>
 <link>http://localhost:8000/</link>
 <description><![CDATA[Noticias sobre Luis Gastélum.]]></description>
 <lastBuildDate>Thu, 24 Sep 2026 04:53:44 +0000</lastBuildDate>

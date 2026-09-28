@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel>
-<title><![CDATA[Nick Gonzales — Estrellas Resto MLB]]></title>
+<title><![CDATA[Nick Gonzales — Estrellas MLB]]></title>
 <link>http://localhost:8000/</link>
 <description><![CDATA[Noticias sobre Nick Gonzales.]]></description>
 <lastBuildDate>Sun, 27 Sep 2026 15:40:44 +0000</lastBuildDate>

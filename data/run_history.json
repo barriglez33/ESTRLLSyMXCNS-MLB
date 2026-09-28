@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "completed_at": "2026-09-28T22:26:01.332934+00:00",
+    "batch": 1,
+    "searches_run": 46,
+    "accepted_before_dedup": 29,
+    "articles_added": 26,
+    "total_articles": 728,
+    "next_batch": 2
+  }
+]
