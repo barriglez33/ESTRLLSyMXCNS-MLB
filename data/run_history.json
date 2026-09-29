@@ -25,5 +25,14 @@
     "articles_added": 12,
     "total_articles": 747,
     "next_batch": 1
+  },
+  {
+    "completed_at": "2026-09-29T10:25:27.006395+00:00",
+    "batch": 1,
+    "searches_run": 46,
+    "accepted_before_dedup": 4,
+    "articles_added": 4,
+    "total_articles": 751,
+    "next_batch": 2
   }
 ]
