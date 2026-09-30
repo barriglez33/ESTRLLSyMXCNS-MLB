@@ -2,40 +2,42 @@
 
 GitHub-online RSS monitor for MLB stars, Mexican MLB/MiLB players, and postseason topics.
 
-## Search coverage
+## High-recall discovery model
 
-The project now tracks:
+This version uses a **scan broadly, process narrowly** strategy.
+
+For every search:
+
+1. Google News can inspect up to **25 RSS results**.
+2. Publication age is checked before expensive processing.
+3. Already-stored URLs are skipped.
+4. At most **6 fresh unseen Google articles** per search are decoded/extracted.
+5. GDELT can return up to **15 results**, but at most **6 fresh unseen GDELT articles** per search are processed.
+
+This improves article discovery without returning to the timeout-heavy behavior of opening every result.
+
+## Search coverage
 
 - **109 players**
 - **28 postseason keywords**
 - **137 total searches**
 
-### Postseason categories
-
-- Core Postseason
-- Round Formats
-- Team & Series Battles
-- Strategy & Analytics
-- Awards & Media
-
 ## Three-batch rotation
 
-The searches are split into:
+The searches remain split across three hourly batches.
 
-- **Batch 1:** 46 searches
-- **Batch 2:** 46 searches
-- **Batch 3:** 45 searches
+Because each search is revisited every three hours, this version uses a rolling **4-hour window** to provide a one-hour safety margin for GitHub delays and late indexing.
 
-The workflow runs once per hour:
+## Less aggressive deduplication
 
-```text
-Hour 1 → Batch 1
-Hour 2 → Batch 2
-Hour 3 → Batch 3
-Hour 4 → Batch 1
-```
+Duplicate detection is now tighter:
 
-Because each search runs once every three hours, the scanner uses a rolling **3-hour news window**.
+- duplicate time window: **24 hours**
+- title similarity: **0.8**
+- title-token overlap: **0.68**
+- body-lead similarity: **0.75**
+
+This should preserve more genuinely distinct articles about the same player or postseason topic.
 
 ## Last 5 runs dashboard
 
@@ -43,59 +45,19 @@ Open:
 
 `docs/run-stats.html`
 
-This page shows the latest five completed runs, including:
+The dashboard now shows:
 
 - batch number
 - searches executed
-- articles added after deduplication
+- fresh discovery candidates
+- extraction attempts
 - articles accepted before deduplication
+- articles added after deduplication
 - total stored articles
 
-The dashboard is regenerated automatically after every successful scanner run.
+This makes it easier to see whether a drop happens during discovery, extraction, relevance filtering, or deduplication.
 
-Its history is stored in:
-
-`data/run_history.json`
-
-Only the latest **5 runs** are kept.
-
-## Feeds
-
-Master:
-
-`docs/feed.xml`
-
-Per player:
-
-`docs/players/*.xml`
-
-Per postseason keyword:
-
-`docs/topics/*.xml`
-
-Dashboard:
-
-`docs/index.html`
-
-Run statistics:
-
-`docs/run-stats.html`
-
-## Performance features
-
-- 3 rotating batches
-- rolling 3-hour window
-- old Google News items discarded before URL decoding
-- only fresh unseen URLs are extracted
-- new stories translated first
-- limited older translation repairs
-- smart duplicate detection
-- stable RSS build dates
-- automatic Git push retries
-
-## GitHub Actions
-
-Workflow:
+## Workflow
 
 `.github/workflows/update.yml`
 

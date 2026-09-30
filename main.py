@@ -108,58 +108,110 @@ def decode_google(u):
         return clean_url(r.get("decoded_url")) if isinstance(r,dict) and r.get("status") and r.get("decoded_url") else None
     except:return None
 
-def discover_gdelt(target):
+def discover_gdelt(target, known_urls=None):
+    known_urls=known_urls or set()
     try:
         r=requests.get(
             "https://api.gdeltproject.org/api/v2/doc/doc",
             params={
                 "query":q_for(target),
                 "mode":"artlist",
-                "maxrecords":CFG["settings"].get("gdelt_results_per_target",10),
+                "maxrecords":CFG["settings"].get("gdelt_results_per_target",15),
                 "timespan":f'{CFG["settings"]["max_age_hours"]}h',
                 "sort":"datedesc",
                 "format":"json"
             },
             timeout=30,
-            headers={"User-Agent":"EstrellasMLB/2.0"}
+            headers={"User-Agent":"EstrellasMLB/2.1"}
         )
         arr=r.json().get("articles",[])
     except Exception as exc:
         print("GDELT error:",exc);return []
 
-    return [{
-        "url":clean_url(x.get("url","")),
-        "title":x.get("title",""),
-        "source":x.get("domain",""),
-        "published":parse_dt(x.get("seendate")),
-        "language":x.get("language",""),
-        "country":x.get("sourcecountry",""),
-        "via":"GDELT",
-        "target_type":target["type"],
-        "target_label":target_label(target),
-    } for x in arr if x.get("url")]
-
-def discover_google(target):
+    cutoff=datetime.now(timezone.utc)-timedelta(hours=float(CFG["settings"]["max_age_hours"]))
+    fresh_limit=int(CFG["settings"].get("max_fresh_gdelt_articles_per_search",6))
     out=[]
+
+    for x in arr:
+        u=clean_url(x.get("url",""))
+        if not u or u in known_urls:
+            continue
+
+        published=parse_dt(x.get("seendate"))
+        if published<cutoff:
+            continue
+
+        out.append({
+            "url":u,
+            "title":x.get("title",""),
+            "source":x.get("domain",""),
+            "published":published,
+            "language":x.get("language",""),
+            "country":x.get("sourcecountry",""),
+            "via":"GDELT",
+            "target_type":target["type"],
+            "target_label":target_label(target),
+        })
+
+        if len(out)>=fresh_limit:
+            break
+
+    return out
+
+def discover_google(target, known_urls=None):
+    out=[]
+    known_urls=known_urls or set()
     cutoff=datetime.now(timezone.utc)-timedelta(hours=float(CFG["settings"]["max_age_hours"]))
     q=q_for(target)
+
+    inspect_limit=int(CFG["settings"].get("google_rss_entries_to_inspect",25))
+    fresh_limit=int(CFG["settings"].get("max_fresh_google_articles_per_search",6))
+
     for ed in CFG["google_news_editions"]:
         url=f'https://news.google.com/rss/search?q={quote_plus(q)}&hl={quote_plus(ed["hl"])}&gl={quote_plus(ed["gl"])}&ceid={quote_plus(ed["ceid"])}'
         f=feedparser.parse(url)
-        for e in list(getattr(f,"entries",[]))[:CFG["settings"]["google_results_per_edition"]]:
+
+        fresh_count=0
+
+        for e in list(getattr(f,"entries",[]))[:inspect_limit]:
             published=feed_dt(e)
+
+            # Cheap RSS date filter comes first.
             if published<cutoff:
                 continue
-            u=decode_google(getattr(e,"link",""))
-            if not u:continue
+
+            # Only fresh entries are expensive enough to decode.
+            raw_link=getattr(e,"link","")
+            u=decode_google(raw_link)
+            if not u:
+                continue
+
+            # Skip URLs already stored before extraction/translation.
+            if u in known_urls:
+                continue
+
             src=""
-            try:src=e.source.get("title","") if getattr(e,"source",None) else ""
-            except:pass
+            try:
+                src=e.source.get("title","") if getattr(e,"source",None) else ""
+            except:
+                pass
+
             out.append({
-                "url":u,"title":getattr(e,"title",""),"source":src or domain(u),
-                "published":published,"language":"","country":ed["label"],"via":"Google News",
-                "target_type":target["type"],"target_label":target_label(target)
+                "url":u,
+                "title":getattr(e,"title",""),
+                "source":src or domain(u),
+                "published":published,
+                "language":"",
+                "country":ed["label"],
+                "via":"Google News",
+                "target_type":target["type"],
+                "target_label":target_label(target)
             })
+
+            fresh_count+=1
+            if fresh_count>=fresh_limit:
+                break
+
     return out
 
 def extract(u):
@@ -386,6 +438,8 @@ def run_stats_html(history):
             f"<td>{html.escape(r.get('completed_at',''))}</td>"
             f"<td>{r.get('batch','')}</td>"
             f"<td>{r.get('searches_run','')}</td>"
+            f"<td>{r.get('discovery_candidates',0)}</td>"
+            f"<td>{r.get('extraction_attempts',0)}</td>"
             f"<td><strong>{r.get('articles_added',0)}</strong></td>"
             f"<td>{r.get('accepted_before_dedup',0)}</td>"
             f"<td>{r.get('total_articles',0)}</td>"
@@ -424,12 +478,14 @@ th{{background:#f0f2f5}}
 <th>Completed at (UTC)</th>
 <th>Batch</th>
 <th>Searches</th>
+<th>Fresh candidates</th>
+<th>Extraction attempts</th>
 <th>Articles added</th>
 <th>Accepted before dedup</th>
 <th>Total stored</th>
 </tr></thead>
 <tbody>
-{''.join(rows) if rows else '<tr><td colspan="6">No completed runs recorded yet.</td></tr>'}
+{''.join(rows) if rows else '<tr><td colspan="8">No completed runs recorded yet.</td></tr>'}
 </tbody>
 </table>
 </div>
@@ -528,13 +584,17 @@ def main():
     cutoff=datetime.now(timezone.utc)-timedelta(hours=float(CFG["settings"]["max_age_hours"]))
     selected,batch,state=select_batch()
     new_ids=[]
+    discovery_candidates=0
+    extracted_attempts=0
 
     for target in selected:
         label=target_label(target)
         print("SEARCH:",target["type"],label)
 
-        candidates=discover_gdelt(target)+discover_google(target)
+        known_urls=set(byurl.keys())
+        candidates=discover_gdelt(target,known_urls)+discover_google(target,known_urls)
         unique={c["url"]:c for c in candidates if c.get("url") and c["published"]>=cutoff}
+        discovery_candidates+=len(unique)
 
         for c in sorted(unique.values(),key=lambda x:x["published"],reverse=True):
             if c["url"] in byurl:
@@ -549,6 +609,7 @@ def main():
                     a["discovery_sources"].append(c["via"])
                 continue
 
+            extracted_attempts+=1
             ex=extract(c["url"])
             if not ex or len(ex["body"])<CFG["settings"]["minimum_body_characters"]:
                 continue
@@ -623,6 +684,8 @@ def main():
         "completed_at":state["last_completed_at"],
         "batch":batch,
         "searches_run":len(selected),
+        "discovery_candidates":discovery_candidates,
+        "extraction_attempts":extracted_attempts,
         "accepted_before_dedup":accepted_before_dedup,
         "articles_added":articles_added,
         "total_articles":len(articles),
@@ -634,6 +697,8 @@ def main():
     save_state(state)
     save_run_history(history)
 
+    print("Discovery candidates:",discovery_candidates)
+    print("Extraction attempts:",extracted_attempts)
     print("Accepted before dedup:",accepted_before_dedup)
     print("Articles added after dedup:",articles_added)
     print("Unique stories:",len(articles))

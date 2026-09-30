@@ -875,7 +875,7 @@
     }
   ],
   "settings": {
-    "max_age_hours": 3,
+    "max_age_hours": 4,
     "gdelt_results_per_player": 12,
     "google_results_per_edition": 4,
     "max_stored_articles": 4000,
@@ -883,8 +883,11 @@
     "minimum_body_characters": 250,
     "google_decode_interval_seconds": 0.05,
     "old_translation_repairs_per_run": 10,
-    "gdelt_results_per_target": 10,
-    "run_history_length": 5
+    "gdelt_results_per_target": 15,
+    "run_history_length": 5,
+    "google_rss_entries_to_inspect": 25,
+    "max_fresh_google_articles_per_search": 6,
+    "max_fresh_gdelt_articles_per_search": 6
   },
   "google_news_editions": [
     {
@@ -920,10 +923,10 @@
   },
   "deduplication": {
     "enabled": true,
-    "max_hours_apart": 48,
-    "title_similarity_threshold": 0.72,
-    "title_token_overlap_threshold": 0.58,
-    "body_lead_similarity_threshold": 0.66,
+    "max_hours_apart": 24,
+    "title_similarity_threshold": 0.8,
+    "title_token_overlap_threshold": 0.68,
+    "body_lead_similarity_threshold": 0.75,
     "body_lead_characters": 1600
   },
   "baseball_context_terms": [
