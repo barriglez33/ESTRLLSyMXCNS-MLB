@@ -1,16 +1,5 @@
 [
   {
-    "completed_at": "2026-10-02T14:22:01.793242+00:00",
-    "batch": 1,
-    "searches_run": 46,
-    "discovery_candidates": 16,
-    "extraction_attempts": 16,
-    "accepted_before_dedup": 9,
-    "articles_added": 9,
-    "total_articles": 949,
-    "next_batch": 2
-  },
-  {
     "completed_at": "2026-10-02T19:46:08.067897+00:00",
     "batch": 2,
     "searches_run": 46,
@@ -53,5 +42,16 @@
     "articles_added": 5,
     "total_articles": 1000,
     "next_batch": 3
+  },
+  {
+    "completed_at": "2026-10-03T14:07:16.547733+00:00",
+    "batch": 3,
+    "searches_run": 45,
+    "discovery_candidates": 10,
+    "extraction_attempts": 10,
+    "accepted_before_dedup": 8,
+    "articles_added": 7,
+    "total_articles": 1007,
+    "next_batch": 1
   }
 ]
