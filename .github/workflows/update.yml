@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 55
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
@@ -30,57 +30,128 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
-
-      - name: Verify repository
-        run: |
-          python -m py_compile main.py
-          python - <<'PY'
-          import json
-          c=json.load(open("config.json",encoding="utf-8"))
-          targets=c["players"]+c.get("topics",[])
-          print("Players:",len(c["players"]))
-          print("Postseason topics:",len(c.get("topics",[])))
-          print("Total searches:",len(targets))
-          for b in (1,2,3):
-              print(f"Batch {b}:",sum(1 for x in targets if x.get("batch")==b))
-          print("Rolling window:",c["settings"]["max_age_hours"],"hours")
-          PY
-
-      - name: Update Estrellas MLB
-        env:
-          PYTHONUNBUFFERED: "1"
-        run: python -u main.py
-
-      - name: Commit generated RSS and data
         shell: bash
         run: |
           set -e
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Verify repository and dependencies
+        shell: bash
+        run: |
+          set -e
+          echo "Python:"
+          python --version
+
+          echo "Syntax check:"
+          python -m py_compile main.py
+
+          echo "Config check:"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p = Path("config.json")
+          if p.exists():
+              with p.open("r", encoding="utf-8") as f:
+                  c = json.load(f)
+              print("config.json OK")
+              print("Project:", c.get("project_name", c.get("feed", {}).get("title", "unknown")))
+          else:
+              print("No config.json found")
+          PY
+
+          echo "Dependency imports:"
+          python - <<'PY'
+          import feedparser
+          import requests
+          import trafilatura
+          from googlenewsdecoder import gnewsdecoder
+          print("Core feed/extraction imports OK")
+
+          try:
+              from deep_translator import GoogleTranslator
+              print("deep-translator OK")
+          except ImportError:
+              print("deep-translator not installed (only a problem if this repository uses translation)")
+
+          try:
+              from langdetect import detect
+              print("langdetect OK")
+          except ImportError:
+              print("langdetect not installed (only a problem if this repository uses language detection)")
+          PY
+
+      - name: Run news scanner
+        id: scanner
+        continue-on-error: true
+        env:
+          PYTHONUNBUFFERED: "1"
+        shell: bash
+        run: |
+          set -o pipefail
+          python -u main.py 2>&1 | tee scanner-run.log
+
+      - name: Show scanner diagnostics
+        if: always()
+        shell: bash
+        run: |
+          echo "============================================================"
+          echo "SCANNER RESULT: ${{ steps.scanner.outcome }}"
+          echo "============================================================"
+
+          if [ -f scanner-run.log ]; then
+            echo "Last 300 log lines:"
+            tail -n 300 scanner-run.log
+          else
+            echo "scanner-run.log was not created."
+          fi
+
+          echo "============================================================"
+          echo "Git status:"
+          git status --short || true
+          echo "============================================================"
+
+      - name: Commit generated RSS and data
+        if: steps.scanner.outcome == 'success'
+        shell: bash
+        run: |
+          set -e
+
           git config user.name "Estrellas Resto MLB Bot"
           git config user.email "actions@users.noreply.github.com"
 
           git add data docs
 
           if git diff --cached --quiet; then
-            echo "No changes."
+            echo "No generated changes."
             exit 0
           fi
 
-          git commit -m "Update Estrellas MLB"
+          git commit -m "Update generated RSS and data"
 
           for attempt in 1 2 3 4 5; do
-            echo "Push attempt $attempt of 5"
-            if git push origin HEAD:main; then
-              echo "Push successful."
+            echo "Push attempt $attempt of 5..."
+
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo "Push succeeded."
               exit 0
             fi
 
-            if [ "$attempt" -lt 5 ]; then
-              wait_seconds=$((attempt * 20))
-              echo "GitHub rejected the push. Waiting ${wait_seconds}s before retry..."
-              sleep "$wait_seconds"
+            if [ "$attempt" -eq 5 ]; then
+              echo "Push failed after 5 attempts."
+              exit 1
             fi
+
+            wait_seconds=$((attempt * 20))
+            echo "Push failed. Waiting ${wait_seconds} seconds before retry..."
+            sleep "$wait_seconds"
           done
 
-          echo "Push failed after 5 attempts."
+      - name: Fail job when scanner failed
+        if: steps.scanner.outcome == 'failure'
+        shell: bash
+        run: |
+          echo "The Python scanner failed."
+          echo "Open the 'Show scanner diagnostics' step above for the actual traceback/error."
           exit 1
