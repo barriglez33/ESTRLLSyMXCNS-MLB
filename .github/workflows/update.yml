@@ -3,8 +3,7 @@ name: Update Estrellas MLB RSS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "41 * * * *"
-
+    - cron: "1,21,41 * * * *"
 concurrency:
   group: estrellas-resto-mlb
   cancel-in-progress: false
