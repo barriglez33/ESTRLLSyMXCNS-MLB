@@ -875,7 +875,7 @@
     }
   ],
   "settings": {
-    "max_age_hours": 4,
+    "max_age_hours": 2,
     "gdelt_results_per_player": 12,
     "google_results_per_edition": 4,
     "max_stored_articles": 4000,
@@ -887,7 +887,8 @@
     "run_history_length": 5,
     "google_rss_entries_to_inspect": 25,
     "max_fresh_google_articles_per_search": 6,
-    "max_fresh_gdelt_articles_per_search": 6
+    "max_fresh_gdelt_articles_per_search": 6,
+    "max_extracted_article_age_hours": 3
   },
   "google_news_editions": [
     {

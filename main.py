@@ -168,26 +168,22 @@ def discover_google(target, known_urls=None):
     fresh_limit=int(CFG["settings"].get("max_fresh_google_articles_per_search",6))
 
     for ed in CFG["google_news_editions"]:
+        if len(out)>=fresh_limit:
+            break
+
         url=f'https://news.google.com/rss/search?q={quote_plus(q)}&hl={quote_plus(ed["hl"])}&gl={quote_plus(ed["gl"])}&ceid={quote_plus(ed["ceid"])}'
         f=feedparser.parse(url)
 
-        fresh_count=0
-
         for e in list(getattr(f,"entries",[]))[:inspect_limit]:
-            published=feed_dt(e)
+            if len(out)>=fresh_limit:
+                break
 
-            # Cheap RSS date filter comes first.
+            published=feed_dt(e)
             if published<cutoff:
                 continue
 
-            # Only fresh entries are expensive enough to decode.
-            raw_link=getattr(e,"link","")
-            u=decode_google(raw_link)
-            if not u:
-                continue
-
-            # Skip URLs already stored before extraction/translation.
-            if u in known_urls:
+            u=decode_google(getattr(e,"link",""))
+            if not u or u in known_urls:
                 continue
 
             src=""
@@ -208,11 +204,43 @@ def discover_google(target, known_urls=None):
                 "target_label":target_label(target)
             })
 
-            fresh_count+=1
-            if fresh_count>=fresh_limit:
-                break
-
     return out
+
+def parse_extracted_article_date(value):
+    """Parse only article dates that contain a usable time component."""
+    if not value:
+        return None
+    raw=str(value).strip()
+
+    # A date such as 2026-10-07 has no clock time, so it cannot safely be
+    # used for a 3-hour freshness cutoff. Let it pass instead of guessing.
+    if "T" not in raw and ":" not in raw:
+        return None
+
+    for candidate in (raw,raw.replace("Z","+00:00")):
+        try:
+            d=datetime.fromisoformat(candidate)
+            if d.tzinfo is None:
+                d=d.replace(tzinfo=timezone.utc)
+            return d.astimezone(timezone.utc)
+        except Exception:
+            pass
+
+    for fmt in ("%Y-%m-%d %H:%M:%S","%Y-%m-%d %H:%M","%Y/%m/%d %H:%M:%S","%Y/%m/%d %H:%M"):
+        try:
+            return datetime.strptime(raw,fmt).replace(tzinfo=timezone.utc)
+        except Exception:
+            pass
+    return None
+
+def actual_article_is_too_old(extracted,max_age_hours=3):
+    if not extracted:
+        return False
+    actual=extracted.get("article_date_dt")
+    if not actual:
+        return False
+    cutoff=datetime.now(timezone.utc)-timedelta(hours=float(max_age_hours))
+    return actual < cutoff
 
 def extract(u):
     try:
@@ -225,7 +253,14 @@ def extract(u):
         if not x:return None
         d=json.loads(x);body=(d.get("text") or "").strip()
         if not body:return None
-        return {"title":(d.get("title") or "").strip(),"author":(d.get("author") or "").strip(),"body":body}
+        raw_date=(d.get("date") or "").strip()
+        return {
+            "title":(d.get("title") or "").strip(),
+            "author":(d.get("author") or "").strip(),
+            "body":body,
+            "article_date":raw_date,
+            "article_date_dt":parse_extracted_article_date(raw_date),
+        }
     except:return None
 
 def mentions(text,name):
@@ -611,6 +646,9 @@ def main():
 
             extracted_attempts+=1
             ex=extract(c["url"])
+            if actual_article_is_too_old(ex,CFG["settings"].get("max_extracted_article_age_hours",3)):
+                print("  Skipped: publisher article date is older than 3 hours")
+                continue
             if not ex or len(ex["body"])<CFG["settings"]["minimum_body_characters"]:
                 continue
 
@@ -636,6 +674,7 @@ def main():
                 "published_iso":pub.isoformat(),
                 "published_rfc2822":format_datetime(pub),
                 "body":ex["body"],
+                "article_date":ex.get("article_date",""),
                 "tracked_players":tracked,
                 "matched_topics":matched_topics,
                 "primary_search_target":label,
